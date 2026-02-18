@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+  SOQL Extractor and Analyzer for Salesforce
+  Manifest V3 - Compatible with Chrome 88+
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOQL Analyzer</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="header-icon">🔍</div>
+      <div class="header-text">
+        <h1>SOQL Analyzer</h1>
+        <p>Salesforce Debug Log Inspector</p>
+      </div>
+    </header>
+
+    <div id="status-bar" class="status-bar status-loading">
+      <span id="status-message">Scanning page for debug log…</span>
+    </div>
+
+    <div id="results" class="hidden">
+
+      <!-- Summary Cards -->
+      <div class="summary-cards">
+        <div class="card">
+          <div class="card-value" id="total-unique-queries">0</div>
+          <div class="card-label">Unique Queries</div>
+        </div>
+        <div class="card">
+          <div class="card-value" id="total-executions">0</div>
+          <div class="card-label">Total Executions</div>
+        </div>
+        <div class="card">
+          <div class="card-value" id="total-objects">0</div>
+          <div class="card-label">Objects Queried</div>
+        </div>
+        <div class="card card-warn" id="limit-card">
+          <div class="card-value" id="limit-usage">0/100</div>
+          <div class="card-label">SOQL Limit</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="queries">Queries</button>
+        <button class="tab-btn" data-tab="objects">Objects</button>
+        <button class="tab-btn" data-tab="raw">Raw Log</button>
+      </div>
+
+      <!-- Queries Tab -->
+      <div class="tab-content active" id="tab-queries">
+        <div class="toolbar">
+          <input type="text" id="query-search" placeholder="Search queries…" />
+          <button id="sort-by-count" class="btn-small active-sort" title="Sort by execution count">Sort: Count ↓</button>
+        </div>
+        <div id="query-list" class="data-list"></div>
+      </div>
+
+      <!-- Objects Tab -->
+      <div class="tab-content hidden" id="tab-objects">
+        <div id="object-list" class="data-list"></div>
+      </div>
+
+      <!-- Raw Log Tab -->
+      <div class="tab-content hidden" id="tab-raw">
+        <div class="toolbar">
+          <input type="text" id="raw-search" placeholder="Filter log lines…" />
+          <label class="toggle-label">
+            <input type="checkbox" id="soql-only-toggle" checked />
+            SOQL lines only
+          </label>
+        </div>
+        <pre id="raw-log-view" class="raw-log"></pre>
+      </div>
+
+    </div>
+
+    <div id="no-log" class="hidden">
+      <div class="empty-state">
+        <div class="empty-icon">📋</div>
+        <h2>No Debug Log Found</h2>
+        <p>Navigate to a Salesforce debug log page, then click the extension icon again.</p>
+        <p class="hint">Look for: <strong>Setup → Debug Logs → View</strong></p>
+      </div>
+    </div>
+
+    <footer>
+      <span>SOQL Extractor v3.0</span>
+      <span>·</span>
+      <a href="mailto:rajivashokbhatt+SOQLExtractor@gmail.com" target="_blank">Feedback</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
