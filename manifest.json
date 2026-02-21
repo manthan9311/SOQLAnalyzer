@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "SOQL Extractor and Analyzer for Salesforce",
   "short_name": "SOQL Analyzer",
-  "version": "3.0.0",
-  "description": "Extract SOQL queries with execution counts from Salesforce debug logs. Helps diagnose 'Too Many SOQLs' errors.",
+  "version": "1.0.0",
+  "description": "Analyze SOQL queries with execution counts from Salesforce debug logs or upload the log file. Helps diagnose 'Too Many SOQLs' errors",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
