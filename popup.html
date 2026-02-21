@@ -24,6 +24,31 @@
       <span id="status-message">Scanning page for debug log…</span>
     </div>
 
+    <!-- Source switcher: tabs between "Live Page" and "Local File" -->
+    <div class="source-tabs">
+      <button class="source-tab active" id="src-page-btn" title="Analyze the currently open Salesforce debug log page">
+        🌐 Live Page
+      </button>
+      <button class="source-tab" id="src-file-btn" title="Load a .log or .txt file from your computer">
+        📂 Local File
+      </button>
+    </div>
+
+    <!-- File upload panel (hidden by default) -->
+    <div id="file-upload-panel" class="hidden">
+      <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Drop a log file here or click to browse">
+        <div class="drop-icon">📄</div>
+        <div class="drop-title">Drop your log file here</div>
+        <div class="drop-sub">or <span class="drop-link">click to browse</span></div>
+        <div class="drop-hint">Supports .log and .txt Salesforce debug log files</div>
+        <input type="file" id="file-input" accept=".log,.txt" style="display:none" />
+      </div>
+      <div id="file-loaded-bar" class="file-loaded-bar hidden">
+        <span id="file-loaded-name">📄 filename.log</span>
+        <button id="file-clear-btn" class="btn-clear" title="Clear and load a different file">✕ Clear</button>
+      </div>
+    </div>
+
     <div id="results" class="hidden">
 
       <!-- Summary Cards -->
@@ -85,15 +110,15 @@
       <div class="empty-state">
         <div class="empty-icon">📋</div>
         <h2>No Debug Log Found</h2>
-        <p>Navigate to a Salesforce debug log page, then click the extension icon again.</p>
-        <p class="hint">Look for: <strong>Setup → Debug Logs → View</strong></p>
+        <p>Navigate to a Salesforce debug log page and try again,<br/>or switch to <strong>Local File</strong> to load a <code>.log</code> / <code>.txt</code> file.</p>
+        <p class="hint">Live page: <strong>Setup → Debug Logs → View</strong></p>
       </div>
     </div>
 
     <footer>
       <span>SOQL Extractor v3.0</span>
       <span>·</span>
-      <a href="mailto:rajivashokbhatt+SOQLExtractor@gmail.com" target="_blank">Feedback</a>
+      <a href="mailto:manthanisdev@gmail.com" target="_blank">Feedback</a>
     </footer>
   </div>
 
